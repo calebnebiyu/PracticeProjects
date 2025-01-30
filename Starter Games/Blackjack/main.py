@@ -3,11 +3,10 @@ import random
 
 cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11]
 play = input("Do you want to play a game of blackjack? Type 'y' or 'n': ")
-# test
+
 if play == 'y':
     def blackjack():
         print(logo)
-        # test for git
         card_reset = True
         while card_reset:
             card1 = random.choice(cards)
@@ -31,7 +30,7 @@ if play == 'y':
                     if score > 21:
                         print(f"Your final hand: {player_cards}, final score: {score}")
                         print(f"Computer's final hand: {comp_cards}, final score: {comp_score}")
-                        print("You went over. You lose! 😭\n")
+                        print("You went over. You lose!\n")
                         play_again = input("Do you want to play again? Type 'y' or 'n': ")
                         if play_again == 'y':
                             print(logo)
@@ -49,7 +48,7 @@ if play == 'y':
                     print(f"Your final hand: {player_cards}, final score: {score}")
                     print(f"Computer's final hand: {comp_cards}, final score: {comp_score}")
                     if score > 21:
-                        print("You went over. You lose! 😭\n")
+                        print("You went over. You lose!\n")
                         play_again = input("Do you want to play again? Type 'y' or 'n': ")
                         if play_again == 'y':
                             print(logo)
@@ -58,7 +57,7 @@ if play == 'y':
                             print("Good game, thanks for playing!")
                     else:
                         if comp_score > 21:
-                            print("Opponent went over. You win! 😀\n")
+                            print("Opponent went over. You win!\n")
                             play_again = input("Do you want to play again? Type 'y' or 'n': ")
                             if play_again == 'y':
                                 print(logo)
@@ -67,7 +66,7 @@ if play == 'y':
                                 card_reset = False
                                 print("Good game, thanks for playing!")
                         elif score > comp_score:
-                            print(f"You win! 😀\n")
+                            print(f"You win!\n")
                             play_again = input("Do you want to play again? Type 'y' or 'n': ")
                             if play_again == 'y':
                                 print(logo)
@@ -76,7 +75,7 @@ if play == 'y':
                                 card_reset = False
                                 print("Good game, thanks for playing!")
                         elif score == comp_score:
-                            print("Draw. 🙃\n")
+                            print("Draw.\n")
                             play_again = input("Do you want to play again? Type 'y' or 'n': ")
                             if play_again == 'y':
                                 print(logo)
@@ -85,7 +84,7 @@ if play == 'y':
                                 card_reset = False
                                 print("Good game, thanks for playing!")
                         else:
-                            print("You lose! 😤\n")
+                            print("You lose!\n")
                             play_again = input("Do you want to play again? Type 'y' or 'n': ")
                             if play_again == 'y':
                                 print(logo)
