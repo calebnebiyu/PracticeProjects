@@ -6,7 +6,7 @@ db = "database.sqlite"
 connect = sqlite3.connect(db)
 
 # Extract and clean all match (columns)
-data = """SELECT * Match"""
+data = """SELECT * FROM Match"""
 df_data = pandas.read_sql_query(data, connect)
 
 # Save to csv
