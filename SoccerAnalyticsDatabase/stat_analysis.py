@@ -11,7 +11,7 @@ cursor.execute("DROP TABLE IF EXISTS GreatestPlayers;")
 connect.commit()
 
 top_players_table = """
-CREATE TABLE IF NOT EXISTS GreatestPlayers AS
+CREATE TABLE IF NOT EXISTS Greatest Players AS
 SELECT 
     p.id,
     p.player_name,
@@ -31,6 +31,10 @@ LIMIT 25;
 
 cursor.execute(top_players_table)
 connect.commit()
+
+# Copy table and make a new one for team stat analysis.
+
+# Then, compare the two and come up with a conclusion as to who is the best player.
 
 df_verification = pd.read_sql_query("SELECT * FROM GreatestPlayers LIMIT 25;", connect)
 print(df_verification)
