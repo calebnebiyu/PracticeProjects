@@ -5,11 +5,11 @@ db = "SoccerAnalyticsDatabase/european_soccer_database.sqlite"
 connect = sqlite3.connect(db)
 cursor = connect.cursor()
 
-cursor.execute("DROP TABLE IF EXISTS GreatestPlayers;")
+cursor.execute("DROP TABLE IF EXISTS Greatest_Players;")
 connect.commit()
 
 top_players_table = """
-CREATE TABLE IF NOT EXISTS GreatestPlayers AS
+CREATE TABLE IF NOT EXISTS Greatest_Players AS
 SELECT 
     p.id,
     p.player_name,
@@ -31,7 +31,7 @@ LIMIT 25;
 cursor.execute(top_players_table)
 connect.commit()
 
-df_verification = pd.read_sql_query("SELECT * FROM GreatestPlayers LIMIT 25;", connect)
+df_verification = pd.read_sql_query("SELECT * FROM Greatest_Players LIMIT 25;", connect)
 print(df_verification)
 
 # Copy table and make a new one for team stat analysis.
