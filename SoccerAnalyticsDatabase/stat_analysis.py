@@ -7,7 +7,7 @@ db = "SoccerAnalyticsDatabase/european_soccer_database.sqlite"
 connect = sqlite3.connect(db)
 cursor = connect.cursor()
 
-cursor.execute("DROP TABLE IF EXISTS GreatestPlayers;")
+cursor.execute("DROP TABLE IF EXISTS Greatest Players;")
 connect.commit()
 
 top_players_table = """
