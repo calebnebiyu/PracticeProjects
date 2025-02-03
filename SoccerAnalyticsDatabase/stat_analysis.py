@@ -36,7 +36,7 @@ connect.commit()
 
 # Then, compare the two and come up with a conclusion as to who is the best player.
 
-df_verification = pd.read_sql_query("SELECT * FROM GreatestPlayers LIMIT 25;", connect)
+df_verification = pd.read_sql_query("SELECT * FROM Greatest Players LIMIT 25;", connect)
 print(df_verification)
 
 connect.close()
