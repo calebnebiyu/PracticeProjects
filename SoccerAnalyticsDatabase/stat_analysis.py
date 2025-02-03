@@ -1,6 +1,5 @@
 # Who is the greatest player from the era, 2007-2016?
 
-
 import sqlite3
 import pandas as pd
 
