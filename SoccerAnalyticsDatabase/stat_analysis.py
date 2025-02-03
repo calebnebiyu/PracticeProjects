@@ -31,7 +31,7 @@ LIMIT 25;
 cursor.execute(top_players_table)
 connect.commit()
 
-df_verification = pd.read_sql_query("SELECT * FROM Greatest_Players LIMIT 25;", connect)
+df_verification = pd.read_sql_query("SELECT * FROM Greatest_WhePlayers LIMIT 25;", connect)
 print(df_verification)
 
 # Copy table and make a new one for team stat analysis.
