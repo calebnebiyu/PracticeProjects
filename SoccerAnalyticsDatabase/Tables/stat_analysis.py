@@ -7,7 +7,6 @@ cursor = connect.cursor()
 
 cursor.execute("DROP TABLE IF EXISTS Greatest_Players;")
 connect.commit()
-
 top_players_table = """
 CREATE TABLE IF NOT EXISTS Greatest_Players AS
 SELECT 
@@ -27,17 +26,35 @@ GROUP BY p.player_name
 ORDER BY best_overall DESC, highest_potential DESC
 LIMIT 25;
 """
-
 cursor.execute(top_players_table)
 connect.commit()
+df_check_top_players_table = pd.read_sql_query("SELECT * FROM Greatest_Players LIMIT 25;", connect)
+print(df_check_top_players_table)
 
-df_verification = pd.read_sql_query("SELECT * FROM Greatest_WhePlayers LIMIT 25;", connect)
-print(df_verification)
 
-# Copy table and make a new one for team stat analysis.
-
-# Then, compare the two and come up with a conclusion as to who is the best player.
-
-# Attain each of these tables and label the last one as your final one
+cursor.execute("DROP TABLE IF EXISTS Shooting_Stats;")
+connect.commit()
+shooting_stats_table = """
+CREATE TABLE Shooting_Stats AS
+SELECT 
+    p.player_name,
+    MAX(pa.finishing) AS best_finishing,
+    pa.shot_power,
+    pa.long_shots,
+    pa.curve,
+    pa.penalties
+    pa.volleys,
+    pa.free_kick_accuracy,
+    pa.heading_accuracy 
+FROM Player AS p
+JOIN Player_Attributes AS pa ON p.player_api_id = pa.player_api_id
+GROUP BY p.player_name
+ORDER BY best_finishing DESC 
+LIMIT 25;
+"""
+cursor.execute(shooting_stats_table)
+connect.commit()
+df_check_shooting_stats_table = pd.read_sql_query("SELECT * FROM Shooting_Stats LIMIT 25;", connect)
+print(df_check_shooting_stats_table)
 
 connect.close()
